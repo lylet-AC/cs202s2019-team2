@@ -1,75 +1,70 @@
 from Song import Song
 
-# set the default sorting value to the title
-#static = Song.album
 
-def PythonSort(playlist):
+def PythonSort(playlist, attr):
+    """Learning experience using the built in python sort"""
 
-	# This is how to iterate through the playlist
-    for song in playlist:
+    outlist = sorted(playlist, key=lambda song: getattr(song,value))
 
-        # you can print the whole song like this
+    for song in outlist:
         print(song.get_song_as_string())
-        # you can access individual data like this
-        print(song.title)
 
-	#outlist = sorted(playlist, key=lambda song: song.title)
-	
-	#print(outlist)
-	#return outlist
-	
-	
+    return outlist
 
-def InsertionSort(playlist):
-    # TODO: implementation for InsertionSort
+def InsertionSort(playlist, attr):
+    """Insertion sort method"""
+
+    for i in range(1, len(playlist)):
+
+        song1 = playlist[i]
+        value1 = getattr(playlist[i], attr)
+        j = i-1
+
+        while j >= 0 and value1 < getattr(playlist[j], attr):
+            playlist[j+1] = playlist[j]
+            j -= 1
+        playlist[j+1] = song1
+
+    return playlist
+
+def BubbleSort(playlist, attr):
+    """Bubble sort method"""
+
+    return playlist
+
+def SelectionSort(playlist, attr):
+    """Selection sort method"""
 
 
     return playlist
 
-def BubbleSort(playlist):
-    # TODO: implementation for BubbleSort
-
-    return playlist
-
-def SelectionSort(playlist):
-    # TODO: implementation for SelectionSort
+def ShellSort(playlist, attr):
+    """Shell sort method"""
 
 
     return playlist
 
-def ShellSort(playlist):
-    # TODO: implementation for ShellSort
 
+def setLambda(data):
+    if data == "1":
+        value = "title"
 
-    return playlist
-	
-"""def setLambda(data):
-	if data == "1":
-		value = Song.title
-	if data == "2":
-		value = Song.artist
-	if data == "3":
-		value = Song.album
-	if data == "4":
-		value = Song.genre
-	if data == "5":
-		value = Song.year
-	if data == "6":
-		value = Song.rank
-		
-	return value	"""
-	
-"""
+    elif data == "2":
+        value = "artist"
 
-Heres a code snippet using a lambda function for sorting
+    elif data == "3":
+        value = "album"
 
->>> student_objects = [
-...     Student('john', 'A', 15),
-...     Student('jane', 'B', 12),
-...     Student('dave', 'B', 10),
-... ]
->>> sorted(student_objects, key=lambda student: student.age)   # sort by age
-[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+    elif data == "4":
+        value = "genre"
 
+    elif data == "5":
+        value = "year"
 
-"""
+    elif data == "6":
+        value = "rank"
+
+    else:
+        value = "title"
+
+    return value

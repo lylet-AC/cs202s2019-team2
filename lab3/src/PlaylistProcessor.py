@@ -36,7 +36,7 @@ def dump_playlist(filepath, playlist):
 
             # you can print the whole song like this
             print(song.get_song_as_string())
-            file.write(song.get_song_as_string())
+            file.write(song.get_song_as_string()+"\n")
 
         file.close()
         print("Writing the file is complete!")

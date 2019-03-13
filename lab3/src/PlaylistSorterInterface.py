@@ -1,4 +1,4 @@
-from PlaylistProcessor import populate_playlist
+from PlaylistProcessor import populate_playlist, dump_playlist
 from PlaylistSorter import *
 from Song import Song
 
@@ -15,23 +15,26 @@ if __name__ == '__main__':
     playlist = populate_playlist(filepath)
 
     # set the lambda function depending on what we want to sort
-    #setLambda(sort_what)
-	
+    value = setLambda(sort_what)
+
     # depending on algorithm and sort_what make calls to the sort functions
     if algorithm == "1":
-        InsertionSort(playlist)
+        playlist = InsertionSort(playlist, value)
 
     elif algorithm == "2":
-        BubbleSort(playlist)
+        playlist = BubbleSort(playlist, value)
 
     elif algorithm == "3":
-        SelectionSort(playlist)
+        playlist = SelectionSort(playlist, value)
 
     elif algorithm == "4":
-        ShellSort(playlist)
-	
+        playlist = ShellSort(playlist, value)
+
     elif algorithm == "5":
-        PythonSort(playlist)
+        playlist = PythonSort(playlist, value)
 
     else:
         print("You have entered an invalid algorithm!")
+
+    filepath = "../data/sorted-songlist.txt"
+    dump_playlist(filepath, playlist)
