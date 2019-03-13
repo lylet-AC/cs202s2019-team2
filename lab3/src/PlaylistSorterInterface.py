@@ -1,6 +1,6 @@
 from PlaylistProcessor import populate_playlist
 from PlaylistSorter import *
-
+from Song import Song
 
 if __name__ == '__main__':
 
@@ -14,18 +14,24 @@ if __name__ == '__main__':
     # populate the playlist based on these songs
     playlist = populate_playlist(filepath)
 
+    # set the lambda function depending on what we want to sort
+    #setLambda(sort_what)
+	
     # depending on algorithm and sort_what make calls to the sort functions
     if algorithm == "1":
-        InsertionSort(playlist, sort_what)
+        InsertionSort(playlist)
 
     elif algorithm == "2":
-        BubbleSort(playlist, sort_what)
+        BubbleSort(playlist)
 
     elif algorithm == "3":
-        SelectionSort(playlist, sort_what)
+        SelectionSort(playlist)
 
     elif algorithm == "4":
-        ShellSort(playlist, sort_what)
+        ShellSort(playlist)
+	
+    elif algorithm == "5":
+        PythonSort(playlist)
 
     else:
         print("You have entered an invalid algorithm!")

@@ -9,6 +9,9 @@ class Song():
         self.year = year
         self.rank = rank
 
+    def __repr__(self):
+        return repr((self.title, self.artist, self.album, self.genre, self.year, self.rank))
+		
     # this returns a string of the song data formatted like the input file
     def get_song_as_string(self):
         string = self.title+" | "+self.artist+" | "+self.album+" | "+self.genre+" | "+self.year+" | "+self.rank
