@@ -35,19 +35,27 @@ def BubbleSort(playlist, attr):
 def SelectionSort(playlist, attr):
     for i in range(len(playlist)):
         minIndex=i
-        attrT = getattr(playlist[], )
+        attrI = getattr(playlist[minIndex],attr)
+        attrT = getattr(playlist[i], attr)
         for j in range(i+1, len(playlist)):
-            if
-                pass
-            if playlist[minIndex] > A[j]:
-                minIndex = j
-        A[i], A[minIndex] = A[minIndex], A[i]
+            if attrT < getattr(playlist[j], attr):
+                if attrI > getattr(playlist[j], attr):
+                    minIndex = j
+        playlist[i], playlist[minIndex] = playlist[minIndex], playlist[i]
     return playlist
 
 def ShellSort(playlist, attr):
-    """Shell sort method"""
-
-
+    l = len(playlist)
+    gap = l//2
+    while gap > 0:
+        for i in range(gap,l):
+            temp = playlist[i]
+            j=i
+            while j >= gap and getattr(playlist[j-gap],attr) > getattr(temp,attr):
+                playlist[j] = playlist[j-gap]
+                j-= gap
+            playlist[j] == temp
+        gap//=2
     return playlist
 
 
