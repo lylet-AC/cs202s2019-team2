@@ -33,9 +33,15 @@ def BubbleSort(playlist, attr):
     return playlist
 
 def SelectionSort(playlist, attr):
-    """Selection sort method"""
-
-
+    for i in range(len(playlist)):
+        minIndex=i
+        attrT = getattr(playlist[], )
+        for j in range(i+1, len(playlist)):
+            if
+                pass
+            if playlist[minIndex] > A[j]:
+                minIndex = j
+        A[i], A[minIndex] = A[minIndex], A[i]
     return playlist
 
 def ShellSort(playlist, attr):
