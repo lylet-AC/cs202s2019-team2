@@ -30,6 +30,15 @@ def InsertionSort(playlist, attr):
 def BubbleSort(playlist, attr):
     """Bubble sort method"""
 
+    for i in range(len(playlist)):
+        song1  = playlist[i]
+        value1 = getattr(playlist[i], attr)
+
+        for j in range(0, len(playlist)-i-1):
+
+            if value1 > getattr(playlist[j], attr) :
+                playlist[j], playlist[j+1] = playlist[j+1], playlist[j]
+
     return playlist
 
 def SelectionSort(playlist, attr):
