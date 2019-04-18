@@ -2,6 +2,7 @@ class Vertex:
     def __init__(self, node):
         self.id = node
         self.adjacent = {}
+        self.assigned = False
 
     def __str__(self):
         return str(self.id) + ' adjacent: ' + str([x.id for x in self.adjacent])
@@ -17,3 +18,9 @@ class Vertex:
 
     def get_weight(self, neighbor):
         return self.adjacent[neighbor]
+
+    def set_assigned(self):
+        self.assigned = True
+
+    def get_assigned(self):
+        return self.assigned

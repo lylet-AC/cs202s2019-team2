@@ -26,7 +26,20 @@ if __name__ == '__main__':
         for w in v.get_connections():
             vid = v.get_id()
             wid = w.get_id()
-            print '( %s , %s, %3d)'  % ( vid, wid, v.get_weight(w))
+            print( vid, wid, v.get_weight(w))
 
     for v in g:
-        print 'g.vert_dict[%s]=%s' %(v.get_id(), g.vert_dict[v.get_id()])
+        print(v.get_id(), g.vert_dict[v.get_id()])
+
+"""
+G is the workfow Graph
+T is a set of tasks
+E is a set of dependencies (the order of execution)
+D deadline that the tasks must be completed by
+
+EST (earliest start time)
+EFT (earliest finish time)
+LFT (last finish time)
+AST (actual start time) - complicated math that selects which task should run based on the jlfsajlfsdj;kldas
+
+"""
